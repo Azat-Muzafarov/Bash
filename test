@@ -1,0 +1,12 @@
+#!/bin/bash
+
+sed -i 's/i/A/g' file
+grep -o -w "\w\{4\}" file
+
+for i in {1..200} 
+do
+	awk 'NF>1{print $NF}' file >> file1
+	sed -i '1{s/[^ ]\+\s*$//}' file
+done 
+
+cat file1
